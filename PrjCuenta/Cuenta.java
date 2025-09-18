@@ -21,7 +21,7 @@ public class Cuenta
         cantCuentasCreadas++;
         codCuenta = "cta-"+cantCuentasCreadas;
         saldo = pSaldo;
-        this.nombreCuentaHabiente = nombreCuentaHabiente;
+        setNombreCuentaHabiente(nombreCuentaHabiente);
         fechaCreacion = establecerFechaCreacionCuenta();
         cantDepositosRealizados = 0;
         cantRetirosExitososRealizados = 0;
@@ -45,6 +45,10 @@ public class Cuenta
         return codCuenta;
     }
     
+    public String getNombreCuentaHabiente(){
+        return nombreCuentaHabiente;
+    }
+    
     public double getSaldo(){
         return saldo;
     }
@@ -55,9 +59,9 @@ public class Cuenta
      }
     
     public double retirar(double monto){
-        if (validarRetiro(monto))
+        if (validarRetiro(monto)){
             cantRetirosExitososRealizados++;
-            saldo-=monto;
+            saldo-=monto;}
         return saldo;
     }
     
@@ -70,7 +74,7 @@ public class Cuenta
     }
     
     public String toString(){
-        return "Codigo de cuenta: "+codCuenta+"\n"+"Saldo: "+saldo+"\n"+"Nombre del cuenta habiente: "+nombreCuentaHabiente+
+        return "Codigo de cuenta: "+codCuenta+"\n"+"Saldo: "+saldo+"\n"+"Nombre del cuentahabiente: "+nombreCuentaHabiente+
                 "\n"+"Fecha de creacion: "+fechaCreacion+"\n"+"Cantidad de depositos realizados: "+cantDepositosRealizados+
                 "\n"+"Cantidad de retiros exitosos realizados: "+cantRetirosExitososRealizados;
     }
